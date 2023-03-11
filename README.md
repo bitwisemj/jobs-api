@@ -1,4 +1,5 @@
 # jobs-api
+<<<<<<< HEAD
 
 ### Run tests
 ```sh
@@ -14,3 +15,6 @@ docker compose up -d
 ```sh
 mvn spring-boot:run
 ```
+=======
+Api to create and display available jobs
+>>>>>>> main
