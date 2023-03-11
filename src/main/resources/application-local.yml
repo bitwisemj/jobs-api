@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: jobs-api
+  data:
+    mongodb:
+      authentication-database: admin
+      database: jobs
+      username: jobs
+      password: jobs
+      host: localhost
+      port: 27017
