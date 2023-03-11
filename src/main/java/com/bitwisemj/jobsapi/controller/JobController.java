@@ -2,6 +2,7 @@ package com.bitwisemj.jobsapi.controller;
 
 import java.util.List;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,9 +37,10 @@ public class JobController {
     }
 
     @GetMapping
-    public ResponseEntity<List<JobResponseDTO>> getJobs() {
+    @Cacheable(value ="jobs")
+    public List<JobResponseDTO> getJobs() {
 
-        return ResponseEntity.ok(getJobService.getJobs());
+        return getJobService.getJobs()      ;
     }
 
     @GetMapping("by-experience")

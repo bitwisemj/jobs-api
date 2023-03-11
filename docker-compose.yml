@@ -22,6 +22,14 @@ services:
             - ME_CONFIG_MONGODB_ADMINUSERNAME=jobs
             - ME_CONFIG_MONGODB_ADMINPASSWORD=jobs
             - ME_CONFIG_MONGODB_SERVER=mongodb
+    redis:
+        image: redis
+        container_name: cache
+        ports:
+            - 6379:6379
+        restart: unless-stopped
+        volumes:
+            - data:/data
 volumes: 
     data: {} 
     

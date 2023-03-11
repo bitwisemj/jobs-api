@@ -1,6 +1,7 @@
 package com.bitwisemj.jobsapi.unit.mapper;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.List;
 import java.util.UUID;
@@ -60,5 +61,21 @@ public class JobMapperTests {
         assertEquals("DevOps", jobResponseDTO.getTitle());
         assertEquals("Big knowledge on AWS, Google Cloud, Azure", jobResponseDTO.getDescription());
         assertEquals(List.of("AWS", "Google Cloud", "Azure"), jobResponseDTO.getSkills());
+    }
+
+    @Test
+    @DisplayName("It should return null when source is null")
+    void itShouldReturnNullWhenJobRequestDTOIsNull() {
+
+        final Job job = underTest.toJob(null);
+        assertNull(job);
+    }
+
+    @Test
+    @DisplayName("It should return null job response when source is null")
+    void itShouldReturnNullWhenJobIsNull() {
+
+        final JobResponseDTO jobResponseDTO = underTest.toJobResponseDTO(null);
+        assertNull(jobResponseDTO);
     }
 }
