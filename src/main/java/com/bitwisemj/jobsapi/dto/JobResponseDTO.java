@@ -11,6 +11,7 @@ public class JobResponseDTO {
     
     private String id;
     private String title;
+    private Integer experience;
     private String description;
     private List<String> skills;
 }

@@ -21,7 +21,7 @@ public class CreateJobServiceImpl implements CreateJobService {
     
     @Override
     public void createJob(final JobRequestDTO jobDTO) {
-        
+
         log.info("A new job will be created with title {} and description {}",
             jobDTO::getTitle, jobDTO::getDescription);
 

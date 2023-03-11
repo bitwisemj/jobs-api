@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bitwisemj.jobsapi.dto.JobRequestDTO;
@@ -38,5 +39,13 @@ public class JobController {
     public ResponseEntity<List<JobResponseDTO>> getJobs() {
 
         return ResponseEntity.ok(getJobService.getJobs());
+    }
+
+    @GetMapping("by-experience")
+    public ResponseEntity<List<JobResponseDTO>> getJobsByExperience(
+        @RequestParam("minXp") final Integer minXp,
+        @RequestParam("maxXp") final Integer maxXp) {
+
+        return ResponseEntity.ok(getJobService.getJobsByExperience(minXp, maxXp));
     }
 }

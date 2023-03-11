@@ -31,5 +31,16 @@ public class GetJobServiceImpl implements GetJobService {
         .map(mapper::toJobResponseDTO)
         .collect(Collectors.toList());
     }
+
+    @Override
+    public List<JobResponseDTO> getJobsByExperience(Integer minXp, Integer maxXp) {
+        log.info("Getting jobs with experience greater than {} and lower than {}",
+        minXp, maxXp);
+        
+        return repository.findByExperience(minXp, maxXp)
+        .stream()
+        .map(mapper::toJobResponseDTO)
+        .collect(Collectors.toList());
+    }
     
 }

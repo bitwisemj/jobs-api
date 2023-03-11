@@ -1,6 +1,7 @@
 package com.bitwisemj.jobsapi.unit.service.impl;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.doReturn;
 
 import java.util.List;
@@ -38,5 +39,18 @@ public class GetJobServiceImplTests {
         doReturn(List.of(jobs)).when(repository).findAll();
 
         assertNotNull(underTest.getJobs());
+    }
+
+    @Test
+    @DisplayName("It should get jobs by experience")
+    void itShouldGetJobsByExperience() {
+
+        final Integer minXp = 4;
+        final Integer maxXp = 5;
+        final String json = JsonUtil.getJsonFromFile(JOB_RESPONSE_JSON_PATH);
+        Job[] jobs = JsonUtil.jsonToObject(json, Job[].class);
+        doReturn(List.of(jobs)).when(repository).findByExperience(anyInt(), anyInt());
+
+        assertNotNull(underTest.getJobsByExperience(minXp, maxXp));
     }
 }

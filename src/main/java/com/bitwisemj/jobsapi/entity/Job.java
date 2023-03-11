@@ -24,6 +24,8 @@ public class Job {
 
     private String title;
 
+    private Integer experience;
+
     private String description;
 
     private List<String> skills;

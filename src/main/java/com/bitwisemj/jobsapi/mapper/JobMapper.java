@@ -14,6 +14,7 @@ public interface JobMapper {
     @Mappings(value = {
         @Mapping(source = "jobDTO.title", target = "title"),
         @Mapping(source = "jobDTO.description", target = "description"),
+        @Mapping(source = "jobDTO.experience", target="experience"),
         @Mapping(source = "jobDTO.skills", target = "skills")
     })
     public Job toJob(final JobRequestDTO jobDTO);
@@ -21,6 +22,7 @@ public interface JobMapper {
     @Mappings(value = {
         @Mapping(source = "job.id", target = "id"),
         @Mapping(source = "job.title", target = "title"),
+        @Mapping(source = "job.experience", target="experience"),
         @Mapping(source = "job.description", target = "description"),
         @Mapping(source = "job.skills", target = "skills")
     })
